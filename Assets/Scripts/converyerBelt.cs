@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class converyerBelt : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float speed = 3.0f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnCollisionStay(Collision collision) {
+        if (collision.gameObject.tag != "Player") {
+            return;
+        }
+
+        //else
+
+        Rigidbody rigidbody = collision.gameObject.GetComponent<Rigidbody>();
+        rigidbody.velocity = transform.forward * speed;
     }
 }
