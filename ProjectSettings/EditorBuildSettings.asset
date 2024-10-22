@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/StartScene.unity
     guid: b104cfbbdc22048ed8cb53a7db2d7bf6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Joystick.unity
     guid: a2ba44019e2a540deb4507337c25a844
   - enabled: 1

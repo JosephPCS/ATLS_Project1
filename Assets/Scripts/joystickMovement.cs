@@ -22,7 +22,6 @@ public class joystickMovement : MonoBehaviour
     {
         //Debug.Log(stickRef.action.ReadValue<UnityEngine.Vector2>());
 
-
         move = stickRef.action.ReadValue<UnityEngine.Vector2>();
 
         Debug.Log(move);

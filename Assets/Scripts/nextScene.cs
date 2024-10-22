@@ -7,7 +7,7 @@ public class nextScene : MonoBehaviour
 {
     public int SceneNum;
 
-    void onCollisionEnter(Collision other) {
+    void onTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Player") {
             SceneManager.LoadScene(SceneNum);
         }
