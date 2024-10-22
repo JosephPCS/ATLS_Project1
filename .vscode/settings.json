@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "VR_Research.sln"
+    "dotnet.defaultSolution": "ATLS_Project1.sln"
 }
