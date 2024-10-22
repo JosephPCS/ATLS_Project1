@@ -14,27 +14,14 @@ public class joystickMovement : MonoBehaviour
     private GameObject mainCamera;
     private float moveDist = .1f;
     private UnityEngine.Vector2 move;
-    private UnityEngine.Vector3 movementVector;
-    private UnityEngine.Vector3 rotationDegrees;
     private UnityEngine.Vector3 forwardNoY;
     private UnityEngine.Vector3 rightNoY;
-
-    private UnityEngine.Quaternion rotation;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
         //Debug.Log(stickRef.action.ReadValue<UnityEngine.Vector2>());
 
-        //rotation = playerOrigin.transform.rotation;
-        //rotation = mainCamera.transform.rotation;
-
-        //rotationDegrees = rotation.eulerAngles;
 
         move = stickRef.action.ReadValue<UnityEngine.Vector2>();
 
@@ -49,7 +36,7 @@ public class joystickMovement : MonoBehaviour
         //get curr rotation from 0
         //adjust vector by that much
 
-        //locamotion unity package
+        //locamotion unity package does something similar
         forwardNoY = new UnityEngine.Vector3(mainCamera.transform.forward[0], 0, mainCamera.transform.forward[2]);
         rightNoY = new UnityEngine.Vector3(mainCamera.transform.right[0], 0, mainCamera.transform.right[2]);
 
