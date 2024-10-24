@@ -19,7 +19,7 @@ public class kunaiTeleport : MonoBehaviour
 
     void TeleportToKunai()
     {
-        newLoc = new Vector3(gameObject.transform.position[0], playerOrigin.transform.position[1], gameObject.transform.position[2]);
+        newLoc = new Vector3(gameObject.transform.position[0], gameObject.transform.position[1] + 1f, gameObject.transform.position[2]);
         playerOrigin.transform.position = newLoc;
     }
 }
