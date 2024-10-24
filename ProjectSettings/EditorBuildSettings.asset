@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Joystick.unity
     guid: a2ba44019e2a540deb4507337c25a844
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Conveyer.unity
     guid: a8b9833581d6240088b4ae896a69350b
   - enabled: 1
