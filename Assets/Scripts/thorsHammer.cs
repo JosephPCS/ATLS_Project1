@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class thorsHammer : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class thorsHammer : MonoBehaviour
     UnityEngine.Vector3 move;
     private UnityEngine.Vector3 rotation;
     private float changingSpeed;
+    [SerializeField] private InputActionReference hand;
 
     // Update is called once per frame
     void Update()

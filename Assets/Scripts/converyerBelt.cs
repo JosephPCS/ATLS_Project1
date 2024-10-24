@@ -31,7 +31,7 @@ public class converyerBelt : MonoBehaviour
         conveyerRotation = parent.rotation.eulerAngles;
 
         //tranform position by a vector in a specific direction
-        move = new UnityEngine.Vector3(0, Mathf.Sin(conveyerRotation[1]), -1 * Mathf.Cos(conveyerRotation[2])); //add sin for vertical movement : Mathf.Sin(conveyerRotation[1])
+        move = new UnityEngine.Vector3(0, 0, -1 * Mathf.Cos(conveyerRotation[2])); //add sin for vertical movement : Mathf.Sin(conveyerRotation[1])
 
         playerOrigin.transform.position += move * speed;
     }
