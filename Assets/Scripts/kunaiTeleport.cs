@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class kunaiTeleport : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject playerOrigin;
+    [SerializeField] private GameObject playerOrigin;
+    private Vector3 newLoc;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision other)
     {
-        if (globalStuffs.thrown)
+        if (globalStuffs.thrown && other.transform.tag != "Player")
         {
             TeleportToKunai();
 
@@ -20,6 +19,7 @@ public class kunaiTeleport : MonoBehaviour
 
     void TeleportToKunai()
     {
-        playerOrigin.transform.position = gameObject.transform.position;
+        newLoc = new Vector3(gameObject.transform.position[0], playerOrigin.transform.position[1], gameObject.transform.position[2]);
+        playerOrigin.transform.position = newLoc;
     }
 }

@@ -39,7 +39,14 @@ public class pickupController : MonoBehaviour
             {
                 //Drop Object
                 //Check if object is throwable
-                DropObject();
+                if (heldObj.tag == "Throwable")
+                {
+                    ThrowObject();
+                }
+                else
+                {
+                    DropObject();
+                }
             }
         }
         if(heldObj != null) 
@@ -89,7 +96,7 @@ public class pickupController : MonoBehaviour
 
     void ThrowObject()
     {
-        throwObject = heldObjRB.GetComponent<GameObject>();
+        throwObject = heldObj;
 
         heldObjRB.useGravity = true;
         heldObjRB.drag = 1;
@@ -99,6 +106,8 @@ public class pickupController : MonoBehaviour
         heldObj = null;
 
         rotation = gameObject.transform.forward;
+
+        Debug.Log(throwObject);
 
         throwObject.GetComponent<Rigidbody>().AddForce(rotation * throwForce);
 

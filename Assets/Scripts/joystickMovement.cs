@@ -24,7 +24,7 @@ public class joystickMovement : MonoBehaviour
 
         move = stickRef.action.ReadValue<UnityEngine.Vector2>();
 
-        Debug.Log(move);
+        //Debug.Log(move);
 
         //playerOrigin.transform.position += transform.forward * move[1];
 
