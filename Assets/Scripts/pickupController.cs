@@ -17,6 +17,11 @@ public class pickupController : MonoBehaviour
     //Input detection
     [SerializeField] private InputActionReference trigger;
 
+    //Temp object storage
+    private GameObject throwObject;
+    private Vector3 rotation;
+    [SerializeField] float throwForce = 0.3f;
+
     private void Update() 
     {
         if (trigger.action.ReadValue<float>() > 0.5f) 
@@ -33,6 +38,7 @@ public class pickupController : MonoBehaviour
             else
             {
                 //Drop Object
+                //Check if object is throwable
                 DropObject();
             }
         }
@@ -54,7 +60,7 @@ public class pickupController : MonoBehaviour
 
     void PickupObject(GameObject pickObj) 
     {
-        if(pickObj.gameObject.tag == "Grabbable")
+        if(pickObj.gameObject.tag == "Grabbable" || pickObj.gameObject.tag == "Throwable")
         {
             if(pickObj.GetComponent<Rigidbody>())
             {
@@ -79,5 +85,23 @@ public class pickupController : MonoBehaviour
 
         heldObjRB.transform.parent = null;
         heldObj = null;
+    }
+
+    void ThrowObject()
+    {
+        throwObject = heldObjRB.GetComponent<GameObject>();
+
+        heldObjRB.useGravity = true;
+        heldObjRB.drag = 1;
+        heldObjRB.constraints = RigidbodyConstraints.None;
+
+        heldObjRB.transform.parent = null;
+        heldObj = null;
+
+        rotation = gameObject.transform.forward;
+
+        throwObject.GetComponent<Rigidbody>().AddForce(rotation * throwForce);
+
+        globalStuffs.thrown = true;
     }
 }
