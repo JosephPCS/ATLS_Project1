@@ -22,21 +22,12 @@ public class thorsHammer : MonoBehaviour
     {
         if (gameObject.transform.childCount > 0)
         {
-            child = gameObject.transform.GetChild(0);
-            //childRotation = child.rotation.eulerAngles;
+            if (gameObject.transform.GetChild(0).tag == "Grabbable")
+            {
+                changingSpeed = Mathf.Sin(rotation[2]);
 
-            rotation = gameObject.transform.rotation.eulerAngles;
-
-            handParent = gameObject.transform.parent;
-
-            rotation = handParent.rotation.eulerAngles;
-
-            //move = new UnityEngine.Vector3(0, 0, -1 * Mathf.Cos(childRotation[2]));
-            move = new UnityEngine.Vector3(0, 0, -1 * Mathf.Cos(rotation[1])); //rotates on the y not z
-
-            changingSpeed = Mathf.Sin(rotation[2]);
-
-            playerOrigin.transform.position += move * speed;
+                playerOrigin.transform.position += speed * gameObject.transform.parent.forward;
+            }
         }
     }
 }

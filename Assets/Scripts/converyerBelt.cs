@@ -34,6 +34,6 @@ public class converyerBelt : MonoBehaviour
         playerOrigin.transform.position += move * speed;
         */
 
-        playerOrigin.transform.position += speed * gameObject.transform.parent.forward * -1;
+        playerOrigin.transform.position += speed * gameObject.transform.parent.forward;
     }
 }
