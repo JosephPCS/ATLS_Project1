@@ -6,28 +6,25 @@ using UnityEngine.InputSystem;
 
 public class thorsHammer : MonoBehaviour
 {
-    private Transform child;
-    private UnityEngine.Vector3 childRotation;
     public float speed = 0.01f;
     [SerializeField]
     private GameObject playerOrigin;
-    UnityEngine.Vector3 move;
     private UnityEngine.Vector3 rotation;
     private float changingSpeed;
-    [SerializeField] private InputActionReference hand;
-    private Transform handParent;
+    private UnityEngine.Vector3 parentRotation;
+    private UnityEngine.Vector3 noVertical;
 
     // Update is called once per frame
     void Update()
     {
         if (gameObject.transform.childCount > 0)
         {
-            if (gameObject.transform.GetChild(0).tag == "Grabbable")
-            {
-                changingSpeed = Mathf.Sin(rotation[2]);
+            changingSpeed = Mathf.Sin(rotation[2]);
 
-                playerOrigin.transform.position += speed * gameObject.transform.parent.forward;
-            }
+            parentRotation = gameObject.transform.parent.forward;
+            noVertical = new UnityEngine.Vector3(parentRotation[0], 0, parentRotation[2]);
+
+            playerOrigin.transform.position += noVertical * speed;
         }
     }
 }
