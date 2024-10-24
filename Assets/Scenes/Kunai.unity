@@ -358,7 +358,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -429,13 +429,13 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -1465,7 +1465,7 @@ GameObject:
   - component: {fileID: 1370275340}
   - component: {fileID: 1370275342}
   - component: {fileID: 1370275341}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player Collider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1986,9 +1986,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdArea: {fileID: 1091036499}
   pickupRange: 5
-  pickupForce: 150
+  pickupForce: 50
   trigger: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  throwForce: 200
+  throwForce: 500
 --- !u!114 &1865397198
 MonoBehaviour:
   m_ObjectHideFlags: 0

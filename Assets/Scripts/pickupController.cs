@@ -22,10 +22,14 @@ public class pickupController : MonoBehaviour
     private Vector3 rotation;
     [SerializeField] float throwForce = 0.3f;
 
+    private bool alreadyDone = false;
+
     private void Update() 
     {
-        if (trigger.action.ReadValue<float>() > 0.5f) 
+        if (trigger.action.ReadValue<float>() > 0.5f && !alreadyDone)
         {
+            alreadyDone = true;
+
             if (heldObj == null) 
             {
                 RaycastHit hit;
@@ -49,7 +53,12 @@ public class pickupController : MonoBehaviour
                 }
             }
         }
-        if(heldObj != null) 
+        else if (trigger.action.ReadValue<float>() < 0.2f)
+        {
+            alreadyDone = false;
+        }
+
+        if(heldObj != null)
         {
             //MoveObject
             MoveObject();
@@ -62,6 +71,8 @@ public class pickupController : MonoBehaviour
         {
             Vector3 moveDirection = (holdArea.position - heldObj.transform.position);
             heldObjRB.AddForce(moveDirection * pickupForce);
+
+            //heldObjRB.transform.rotation = gameObject.transform.rotation;
         }
     }
 
@@ -74,9 +85,8 @@ public class pickupController : MonoBehaviour
                 heldObjRB = pickObj.GetComponent<Rigidbody>();
                 heldObjRB.useGravity = false;
                 heldObjRB.drag = 10;
-                heldObjRB.constraints = RigidbodyConstraints.FreezeRotation; //will probs remove so it flows better
-                //heldObjRB.constraints = RigidbodyConstraints.FreezeRotationX; //Use so it looks good
-                //heldObjRB.constraints = RigidbodyConstraints.FreezeRotationY;
+
+                heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
 
                 heldObjRB.transform.parent = holdArea;
                 heldObj = pickObj;
@@ -107,7 +117,7 @@ public class pickupController : MonoBehaviour
 
         rotation = gameObject.transform.forward;
 
-        Debug.Log(throwObject);
+        //Debug.Log(throwObject);
 
         throwObject.GetComponent<Rigidbody>().velocity = new UnityEngine.Vector3(0, 0, 0);
         throwObject.GetComponent<Rigidbody>().AddForce(rotation * throwForce);
