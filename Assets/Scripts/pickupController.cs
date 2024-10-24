@@ -109,6 +109,7 @@ public class pickupController : MonoBehaviour
 
         Debug.Log(throwObject);
 
+        throwObject.GetComponent<Rigidbody>().velocity = new UnityEngine.Vector3(0, 0, 0);
         throwObject.GetComponent<Rigidbody>().AddForce(rotation * throwForce);
 
         globalStuffs.thrown = true;
