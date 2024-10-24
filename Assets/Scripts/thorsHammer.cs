@@ -15,6 +15,7 @@ public class thorsHammer : MonoBehaviour
     private UnityEngine.Vector3 rotation;
     private float changingSpeed;
     [SerializeField] private InputActionReference hand;
+    private Transform handParent;
 
     // Update is called once per frame
     void Update()
@@ -26,10 +27,14 @@ public class thorsHammer : MonoBehaviour
 
             rotation = gameObject.transform.rotation.eulerAngles;
 
-            //move = new UnityEngine.Vector3(0, 0, -1 * Mathf.Cos(childRotation[2]));
-            move = new UnityEngine.Vector3(0, 0, -1 * Mathf.Cos(rotation[2]));
+            handParent = gameObject.transform.parent;
 
-            changingSpeed = Mathf.Sin(rotation[1]);
+            rotation = handParent.rotation.eulerAngles;
+
+            //move = new UnityEngine.Vector3(0, 0, -1 * Mathf.Cos(childRotation[2]));
+            move = new UnityEngine.Vector3(0, 0, -1 * Mathf.Cos(rotation[1])); //rotates on the y not z
+
+            changingSpeed = Mathf.Sin(rotation[2]);
 
             playerOrigin.transform.position += move * speed;
         }
