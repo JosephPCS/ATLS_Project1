@@ -16,6 +16,8 @@ public class joystickMovement : MonoBehaviour
     private UnityEngine.Vector2 move;
     private UnityEngine.Vector3 forwardNoY;
     private UnityEngine.Vector3 rightNoY;
+    private UnityEngine.Vector3 prevPos;
+    private bool extraMove = true;
 
     // Update is called once per frame
     void Update()
@@ -36,10 +38,25 @@ public class joystickMovement : MonoBehaviour
         //adjust vector by that much
 
         //locamotion unity package does something similar
-        forwardNoY = new UnityEngine.Vector3(mainCamera.transform.forward[0], 0, mainCamera.transform.forward[2]);
-        rightNoY = new UnityEngine.Vector3(mainCamera.transform.right[0], 0, mainCamera.transform.right[2]);
+        //forwardNoY = new UnityEngine.Vector3(mainCamera.transform.forward[0], 0, mainCamera.transform.forward[2]);
+        //rightNoY = new UnityEngine.Vector3(mainCamera.transform.right[0], 0, mainCamera.transform.right[2]);
 
-        playerOrigin.transform.position += forwardNoY * move[1] * moveDist;
-        playerOrigin.transform.position += rightNoY * move[0] * moveDist;
+        if (globalStuffs.collidedWithWall) {
+            //playerOrigin.transform.position = prevPos;
+
+            //playerOrigin.transform.position += forwardNoY * move[1] * moveDist * -2;
+            //playerOrigin.transform.position += rightNoY * move[0] * moveDist * -2;
+
+            playerOrigin.transform.position += globalStuffs.normOfCollision * moveDist * 1;
+        }
+        else {
+            forwardNoY = new UnityEngine.Vector3(mainCamera.transform.forward[0], 0, mainCamera.transform.forward[2]);
+            rightNoY = new UnityEngine.Vector3(mainCamera.transform.right[0], 0, mainCamera.transform.right[2]);
+
+            playerOrigin.transform.position += forwardNoY * move[1] * moveDist;
+            playerOrigin.transform.position += rightNoY * move[0] * moveDist;
+
+            //prevPos = playerOrigin.transform.position;
+        }
     }
 }

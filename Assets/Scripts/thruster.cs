@@ -13,6 +13,8 @@ public class thruster : MonoBehaviour
     bool isThrust = false;
     private Vector3 noVertical;
     private bool alreadyThrusted = false;
+    private float moveDist = .1f;
+
 
     void Start()
     {
@@ -25,13 +27,18 @@ public class thruster : MonoBehaviour
     {
         //Debug.Log(isThrust);
 
-        if(isThrust && !alreadyThrusted){
-            noVertical = new Vector3(transform.forward[0], 0, transform.forward[2]);
-            rb.AddForce(thrustPow * noVertical * -1, ForceMode.Impulse);
-            alreadyThrusted = true;
+        if (globalStuffs.collidedWithWall) {
+            rb.transform.position += globalStuffs.normOfCollision * moveDist * 1;
         }
-        if(!isThrust){
-            alreadyThrusted = false;
+        else {
+            if(isThrust && !alreadyThrusted){
+                noVertical = new Vector3(transform.forward[0], 0, transform.forward[2]);
+                rb.AddForce(thrustPow * noVertical * -1, ForceMode.Impulse);
+                alreadyThrusted = true;
+            }
+            if(!isThrust){
+                alreadyThrusted = false;
+            }
         }
     }
 }
