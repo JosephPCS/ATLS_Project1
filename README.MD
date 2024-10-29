@@ -42,3 +42,15 @@ Each interaction will have a short storyboard that shows how we envision them to
 - **Thor’s Hammer**  
 - **Thrusters (lasers)**  
 - **Teleport kunai**
+
+
+# Pre-test Questions
+- Do you know what local motion is??
+- Have you ever used VR or things that produce this local motion, like kinect or WII?
+- if so what did you like about those systems?
+-If not what are your intial thoughts or fears about this interaction?
+
+# Post-test Questions
+-What interaction was the most intriguing?
+-How was the control on the interactions?
+-How intuitive was it to progress through each interaction level?

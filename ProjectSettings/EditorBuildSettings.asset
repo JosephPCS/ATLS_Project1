@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Thors.unity
     guid: f20a26c21c8864752a69fca7fb63e7de
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Thrusters.unity
     guid: 1904164d304a74edc9d837472b001cfa
   - enabled: 1
