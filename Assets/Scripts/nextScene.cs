@@ -6,22 +6,20 @@ using UnityEngine.SceneManagement;
 public class nextScene : MonoBehaviour
 {
     public int SceneNum;
-    /*
-    void onTriggerEnter(Collider other) {
+
+    void OnTriggerEnter(Collider other) {
         Debug.Log("Teleporting");
 
-        #if(other.gameObject.tag == "Player") {
-        #    SceneManager.LoadScene(SceneNum);
-        #}
+        if(other.gameObject.tag == "Player") {
+            SceneManager.LoadScene(SceneNum);
+        }
         
-        SceneManager.LoadScene(SceneNum);
-    }
-    */
-    void onTriggerEnter(Collider other) {
-        Debug.Log("Trigger");
+        //SceneManager.LoadScene(SceneNum);
     }
 
+    /*
     void onCollisionEnter(Collision other) {
         Debug.Log("Collision");
     }
+    */
 }
