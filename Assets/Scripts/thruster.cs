@@ -26,8 +26,9 @@ public class thruster : MonoBehaviour
     void FixedUpdate()
     {
         //Debug.Log(isThrust);
-
+        
         if (globalStuffs.collidedWithWall) {
+            rb.velocity = new Vector3(0, 0, 0);
             rb.transform.position += globalStuffs.normOfCollision * moveDist * 1;
         }
         else {
